@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 All Students
+
+  if items.length > 0
+    table
+      thead
+        tr
+          th ID
+          th Name
+          th Age
+          th Edit
+          th Delete
+      tbody
+        each item in items
+          tr
+            td= item.id
+            td= item.name
+            td= item.age
+            td
+              a(href=`/edit-student/${item.id}`) 
+                button(type="button") Edit
+            td
+              form(action=`/api/user/${item.id}`, method="POST")
+                input(type="hidden", name="_method", value="DELETE")
+                button(type="submit") Delete
+    a(href="/add-student")
+      button(type="button") Add Student
+  else
+    p No students found.

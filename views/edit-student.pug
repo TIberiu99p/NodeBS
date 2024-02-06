@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Edit Student
+
+  form(action=`/api/user/${student.id}`, method="POST") 
+    input(type="hidden", name="_method", value="PUT") 
+    label(for="name") Name:
+    input(id="name", name="name", type="text", value=student.name, required)
+
+    label(for="age") Age:
+    input(id="age", name="age", type="number", value=student.age, required)
+
+    input(type="submit", value="Update Student")
+
+  // Add a button to navigate back to the index page
+  a(href="/")
+    button(type="button") Back to Students

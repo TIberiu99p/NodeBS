@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Add Student
+
+  form(action="/add-student", method="post")
+    label(for="name") Name:
+    input(id="name", name="name", type="text", required)
+
+    label(for="age") Age:
+    input(id="age", name="age", type="number", required)
+
+    input(type="submit", value="Add Student")
+
+  // Add a button to navigate back to the index page
+  a(href="/")
+    button(type="button") Back to Students
